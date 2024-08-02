@@ -16,15 +16,7 @@
         <v-btn
           color="primary"
           prepend-icon="mdi-plus"
-          size="x-large"
-          text="New bill"
-          to="/bills/new">
-        </v-btn>
-        <v-btn
-          v-if="!isMobile"
-          color="primary"
-          prepend-icon="mdi-plus"
-          size="large"
+          :size="isMobile ? 'x-large' : 'large'"
           text="New bill"
           to="/bills/new">
         </v-btn>
@@ -85,9 +77,17 @@
           </v-container>
           <v-container>
             <v-sheet>
-
               <v-container
                 v-if="isMobile">
+                <div v-if="eventsMap.size === 0">
+                  <v-list>
+                    <v-list-item>
+                      <v-list-item-title>
+                        No expenses this month!
+                      </v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </div>
                 <div v-for="(event, index) in eventsMap.entries()" :key="index">
                   <div class="py-3">
                   <span>

@@ -2,13 +2,13 @@
   <v-layout id="layout">
     <v-main>
       <v-container
-        class="h-screen d-flex justify-center align-center">
+        class="py-15 d-flex justify-center align-center">
         <v-card
           :width="isMobile ? '100%' : '50vw'"
           color="black"
-          height="85vh">
+          >
           <v-card-title>
-            <v-img class="my-7" height="24vh" src="../assets/dime-logo-white.png">
+            <v-img class="my-7" height="200px" src="../assets/dime-logo-white.png">
             </v-img>
             <v-container class="text-center">
               <h1>

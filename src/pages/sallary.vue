@@ -63,6 +63,7 @@ export default defineComponent({
       this.loading = true;
       try {
         await this.saveSallary(this.form);
+        await this.$router.push('/');
       } finally {
         this.loading = false;
       }

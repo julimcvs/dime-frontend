@@ -65,8 +65,9 @@ export default defineComponent({
 
     generateBarChartData() {
       const expensesPerCategory = new Map<string, number>();
+      console.log(this.categories)
       this.expenses.forEach((expense: Expense) => {
-        const category = this.categories.find((category: any) => category.id === expense.__category__.id);
+        const category = this.categories.find((category: any) => category.id === expense.category.id);
         const expensesPerCategoryValue = expensesPerCategory.get(category.description);
         if (expensesPerCategoryValue) {
           expensesPerCategory.set(category.description, expensesPerCategoryValue + parseFloat(String(expense.price)));

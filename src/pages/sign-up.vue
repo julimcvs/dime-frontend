@@ -2,13 +2,13 @@
   <v-layout id="layout">
     <v-main>
       <v-container
-        class="h-screen d-flex justify-center align-center">
+        class="d-flex justify-center align-center">
         <v-card
           :width="isMobile ? '100%' : '50vw'"
           color="black"
-          height="95vh">
+          >
           <v-card-title>
-            <v-img class="my-7" height="24vh" src="../assets/dime-logo-white.png">
+            <v-img height="200px" src="../assets/dime-logo-white.png">
             </v-img>
             <v-container class="text-center">
               <h1>
@@ -23,8 +23,9 @@
               </p>
             </v-container>
             <v-form
+              validate-on="input lazy"
+              ref="form"
               v-model="formValid"
-              fast-fail
               @submit.prevent="doSignUp">
               <v-container
                 :class="isMobile ? '' : 'px-15'">
@@ -51,6 +52,7 @@
                   :rules="[required, minLengthPassword, maxLength, passwordsMatch, passwordPattern]"
                   :type="showPassword ? 'text' : 'password'"
                   label="Password"
+                  @update:model-value="formRef.validate()"
                   prepend-inner-icon="mdi-lock"
                   required
                   rounded="lg"
@@ -85,6 +87,7 @@
                 </v-text-field>
                 <v-container class="px-0">
                   <v-btn
+                    :disabled="!formValid"
                     :loading="loading"
                     color="primary"
                     rounded="lg"
@@ -112,6 +115,10 @@ export default defineComponent({
   name: 'SignUp',
 
   computed: {
+    formRef() {
+      return this.$refs.form as any;
+    },
+
     isMobile() {
       return this.$vuetify.display.smAndDown;
     }

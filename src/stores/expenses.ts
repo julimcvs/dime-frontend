@@ -7,8 +7,7 @@ export interface Expense {
   description: string,
   price: number,
   paymentDay: Date,
-  categoryId: number,
-  __category__: any
+  category: any
 }
 
 export const useExpenseStore = defineStore('expense', {

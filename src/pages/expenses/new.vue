@@ -194,7 +194,8 @@ export default defineComponent({
         const res = await this.findExpenseById(id);
         const expense = res.data;
         this.form = {
-          ...expense
+          ...expense,
+          categoryId: expense.category.id
         }
       } catch (e) {
         console.error('This expense does not exist.')
