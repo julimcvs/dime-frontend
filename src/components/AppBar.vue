@@ -49,7 +49,6 @@
 
 </template>
 <script lang="ts">
-import {is} from "@babel/types";
 
 export default defineComponent({
   name: 'AppBar',
@@ -68,9 +67,10 @@ export default defineComponent({
   },
 
   data() {
+    const isOpen: boolean | null = null as boolean | null;
     return {
       isExpanded: false,
-      isOpen: null,
+      isOpen,
       userDetails: {
         email: '',
         username: ''
