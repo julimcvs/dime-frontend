@@ -16,15 +16,14 @@
           to="/expenses/new">
         </v-btn>
       </v-container>
-      <div>
+      <v-container>
         <v-tabs
           v-model="tab"
-          class="ml-5"
           color="primary">
           <v-tab :value="1">Calendar</v-tab>
           <v-tab :value="2">Analytics</v-tab>
         </v-tabs>
-      </div>
+      </v-container>
       <v-tabs-window v-model="tab">
         <v-tabs-window-item :value="1">
           <v-container>

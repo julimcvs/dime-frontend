@@ -70,6 +70,7 @@
                   v-model="form.confirmPassword"
                   :rules="[required, minLengthPassword, maxLength, passwordsMatch]"
                   :type="showPassword ? 'text' : 'password'"
+                  @update:model-value="formRef.validate()"
                   hide-details="auto"
                   label="Confirm Password"
                   prepend-inner-icon="mdi-check-circle-outline"
