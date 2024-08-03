@@ -19,7 +19,7 @@
 </script>
 <style scoped>
 #layout {
-  background-image: url('src/assets/background.jpg');
+  background-image: url('../assets/background.jpg');
   background-size: cover;
 }
 </style>
